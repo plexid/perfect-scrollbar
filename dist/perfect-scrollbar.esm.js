@@ -1,6 +1,6 @@
 /*!
  * perfect-scrollbar v1.5.6
- * Copyright 2024 Hyunje Jun, MDBootstrap and Contributors
+ * Copyright 2025 Hyunje Jun, MDBootstrap and Contributors
  * Licensed under MIT
  */
 
@@ -111,7 +111,7 @@ EventElement.prototype.bind = function bind (eventName, handler) {
     this.handlers[eventName] = [];
   }
   this.handlers[eventName].push(handler);
-  this.element.addEventListener(eventName, handler, false);
+  this.element.addEventListener(eventName, handler, {passive: true});
 };
 
 EventElement.prototype.unbind = function unbind (eventName, target) {
@@ -121,7 +121,7 @@ EventElement.prototype.unbind = function unbind (eventName, target) {
     if (target && handler !== target) {
       return true;
     }
-    this$1.element.removeEventListener(eventName, handler, false);
+    this$1.element.addEventListener(eventName, handler, {passive: true});
     return false;
   });
 };

@@ -602,7 +602,7 @@ function bindMouseScrollHandler(
         document.addEventListener('mousemove', moveHandler);
         document.addEventListener('mouseup', endHandler);
       } else {
-        document.addEventListener('touchmove', moveHandler, { passive: false });
+        document.addEventListener('touchmove', moveHandler, { passive: true });
         document.addEventListener('touchend', endHandler);
       }
 
